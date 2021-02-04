@@ -1,3 +1,4 @@
+# if you use this code please give credit to Konstantinos Karakasidis
 import pyautogui as p
 from datetime import datetime
 import tkinter as tk
