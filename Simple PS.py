@@ -45,7 +45,7 @@ class App():
         self.pos_b2 = self.canvas.create_window(275, 5, anchor='ne', window=self.button2)
         self.pos_bi = self.canvas.create_window(5, 5, anchor='nw', window=self.buttoni)
 
-        # self.root.bind('<Enter>', self.screenShot())
+        self.root.bind('<Enter>', self.screenShot())
 
     def info(self):
         simpledialog.messagebox.showinfo('About', ' Simple Print Screen version 1 \n Credits: \n Κωνσταντίνος Καρακασίδης')
