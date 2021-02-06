@@ -3,6 +3,7 @@ import pyautogui as p
 from datetime import datetime
 import tkinter as tk
 from tkinter import simpledialog
+import os
 # ------------------------------MS imports for admin privileges start---------------------------------------------------
 import ctypes
 import enum
@@ -46,16 +47,17 @@ class App():
         self.pos_b2 = self.canvas.create_window(275, 5, anchor='ne', window=self.button2)
         self.pos_bi = self.canvas.create_window(5, 5, anchor='nw', window=self.buttoni)
 
-        # self.root.bind('<Enter>', self.screenShot())
 
     def info(self):
         simpledialog.messagebox.showinfo('About', ' Simple Print Screen version 1 \n Credits: \n Κωνσταντίνος Καρακασίδης')
 
     def screenShot(self):
+        if os.path.isdir('images') is not True: os.mkdir('images')
         now = datetime.now()
         n = now.strftime("_%H-%M-%S_%B_%d_%Y")
-        ss = p.screenshot(f'images/SimplePrintScreen{n}.png')
-        # return ss
+        p.screenshot(f'images/SimplePrintScreen{n}.png')
+
+
 
 
 
