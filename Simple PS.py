@@ -28,6 +28,7 @@ class App():
         pos_down = int(root.winfo_screenheight()/3 - win_hight/3)
         root.geometry("280x145+{}+{}".format(pos_right, pos_down))
 
+
     def widgets(self):
         #basiko para8iro
         self.font = 'Arial 12'
@@ -41,7 +42,7 @@ class App():
         self.button1.pack()
         self.button2 = tk.Button(self.canvas, text='Έξοδος', font=self.font, command=self.root.destroy, width=29, anchor='s')
         self.button2.pack()
-        self.buttonTray = tk.Button(self.canvas, text='Εικονίδιο στη γραμμή εργασιών', font=self.font, width=29, command=self.tray_stat,anchor='s')
+        self.buttonTray = tk.Button(self.canvas, text='Εικονίδιο στη γραμμή εργασιών', font=self.font, width=29, command=self.tray_start,anchor='s')
         self.buttonTray.pack()
         self.buttoni = tk.Button(self.canvas, text='About ', font=self.font, width=29, command=self.info, anchor='s')
         self.buttoni.pack()
@@ -55,7 +56,7 @@ class App():
         self.root.update()
         self.root.after(1, self.refresh)
 
-    def tray_stat(self):
+    def tray_start(self):
         self.refresh()
         self.root.destroy()
         self.thread = threading.Thread(target=self.systray(), daemon=True)
@@ -71,7 +72,7 @@ class App():
         p.screenshot(f'images/SimplePrintScreen{n}.png')
 
     def systray(self):
-        menu_def = ['BLANK', ['&Άνοιγμα', '&Έξοδος']]
+        menu_def = ['BLANK', ['&Άνοιγμα', '&About', '&Έξοδος']]
         tray = sg.SystemTray(menu=menu_def, filename=r'icon.ico', tooltip='click for Simple Print Screen')
         while True:
             menu_item = tray.Read()
@@ -81,6 +82,8 @@ class App():
                 bootstrap()
             elif menu_item == '__ACTIVATED__':
                 self.screenShot()
+            elif menu_item == 'About':
+                self.info()
 
 
 # ------------------------------MS code for admin privileges start------------------------------------------------------
