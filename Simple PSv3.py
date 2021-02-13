@@ -48,7 +48,7 @@ class App():
                 self.screenShot()
                 self.notificationSave()
             elif menu_item == 'Πληροφορίες':
-                sg.Popup(' Πληροφορίες', ' Simple Print Screen Έκδοση 3.1 \n\n Ευχαριστώ που χρησιμοποιείτε την εφαρμογή. \n Η εφαρμογή αναπτύχθηκε από τον \n Κωνσταντίνο Καρακασίδη. \n\n Επικοινωνία: defendergr@gmail.com \n', icon='icon.ico')
+                sg.Popup(' Πληροφορίες', ' Simple Print Screen Έκδοση 3.2 \n\n Ευχαριστώ που χρησιμοποιείτε την εφαρμογή. \n Η εφαρμογή αναπτύχθηκε από τον \n Κωνσταντίνο Καρακασίδη. \n\n Επικοινωνία: defendergr@gmail.com \n', icon='icon.ico')
 
     def notification(self):
         toaster = ToastNotifier()
@@ -56,7 +56,7 @@ class App():
 
     def notificationSave(self):
         toaster = ToastNotifier()
-        toaster.show_toast('Simple Print Screen', 'Το στιγμιότυπο οθόνης αποθηκεύτηκε', duration=2, icon_path='blank.ico')
+        toaster.show_toast('Simple Print Screen', 'Το στιγμιότυπο οθόνης αποθηκεύτηκε', duration=2, icon_path='icon.ico')
 
 
 # ------------------------------MS code for admin privileges start------------------------------------------------------
