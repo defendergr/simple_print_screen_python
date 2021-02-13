@@ -39,13 +39,16 @@ class App():
                 break
             elif menu_item == 'Άνοιγμα φακέλου':
                 home = os.environ.get('USERPROFILE')
-                dir = '/Simple Print Screen'
-                os.startfile(home+dir)
+                dir = 'Simple Print Screen'
+                if os.path.isdir(home + '/' + dir) is not True:
+                    path = os.path.join(home, dir)
+                    os.mkdir(path)
+                os.startfile(home+'/'+dir)
             elif menu_item == '__ACTIVATED__':
                 self.screenShot()
                 self.notificationSave()
             elif menu_item == 'Πληροφορίες':
-                sg.Popup(' Πληροφορίες', ' Simple Print Screen Έκδοση 3 \n\n Ευχαριστώ που χρησιμοποιείτε την εφαρμογή. \n Η εφαρμογή αναπτύχθηκε από τον \n Κωνσταντίνο Καρακασίδη. \n\n Επικοινωνία: defendergr@gmail.com \n', icon='icon.ico')
+                sg.Popup(' Πληροφορίες', ' Simple Print Screen Έκδοση 3.1 \n\n Ευχαριστώ που χρησιμοποιείτε την εφαρμογή. \n Η εφαρμογή αναπτύχθηκε από τον \n Κωνσταντίνο Καρακασίδη. \n\n Επικοινωνία: defendergr@gmail.com \n', icon='icon.ico')
 
     def notification(self):
         toaster = ToastNotifier()
